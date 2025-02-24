@@ -2,20 +2,43 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
-  body {
-    @apply text-dark-gray;
+body {
+  color: #222222; /* dark-gray */
+}
+
+.btn {
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  font-weight: 500;
+}
+
+.btn-primary {
+  background-color: #FF385C; /* airbnb-pink */
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: #FF5A5F; /* airbnb-red */
+}
+
+.container-custom {
+  max-width: 80rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+@media (min-width: 640px) {
+  .container-custom {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
   }
 }
 
-@layer components {
-  .btn {
-    @apply px-4 py-2 rounded-lg font-medium;
-  }
-  .btn-primary {
-    @apply bg-airbnb-pink text-white hover:bg-airbnb-red;
-  }
+@media (min-width: 1024px) {
   .container-custom {
-    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+    padding-left: 2rem;
+    padding-right: 2rem;
   }
 } 

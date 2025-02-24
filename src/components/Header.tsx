@@ -1,3 +1,5 @@
+'use client';
+
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -9,7 +11,7 @@ const Header = () => {
         <Link href="/" className="flex items-center">
           <div className="relative h-8 w-8 mr-2">
             <Image 
-              src="/AirbnbFood/logo.svg" 
+              src="/logo.svg" 
               alt="OahuEats Logo" 
               fill
               className="object-contain"

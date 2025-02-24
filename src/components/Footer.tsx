@@ -1,3 +1,5 @@
+'use client';
+
 import Link from 'next/link';
 
 const Footer = () => {
@@ -9,22 +11,22 @@ const Footer = () => {
             <h3 className="font-bold text-lg mb-4">About OahuEats</h3>
             <ul className="space-y-2">
               <li>
-                <Link href="/about" className="text-sm text-gray-600 hover:text-airbnb-pink">
+                <Link href="/about/" className="text-sm text-gray-600 hover:text-airbnb-pink">
                   About Us
                 </Link>
               </li>
               <li>
-                <Link href="/how-it-works" className="text-sm text-gray-600 hover:text-airbnb-pink">
+                <Link href="/how-it-works/" className="text-sm text-gray-600 hover:text-airbnb-pink">
                   How It Works
                 </Link>
               </li>
               <li>
-                <Link href="/contact" className="text-sm text-gray-600 hover:text-airbnb-pink">
+                <Link href="/contact/" className="text-sm text-gray-600 hover:text-airbnb-pink">
                   Contact Us
                 </Link>
               </li>
               <li>
-                <Link href="/careers" className="text-sm text-gray-600 hover:text-airbnb-pink">
+                <Link href="/careers/" className="text-sm text-gray-600 hover:text-airbnb-pink">
                   Careers
                 </Link>
               </li>
@@ -34,22 +36,22 @@ const Footer = () => {
             <h3 className="font-bold text-lg mb-4">Community</h3>
             <ul className="space-y-2">
               <li>
-                <Link href="/blog" className="text-sm text-gray-600 hover:text-airbnb-pink">
+                <Link href="/blog/" className="text-sm text-gray-600 hover:text-airbnb-pink">
                   Food Blog
                 </Link>
               </li>
               <li>
-                <Link href="/stories" className="text-sm text-gray-600 hover:text-airbnb-pink">
+                <Link href="/stories/" className="text-sm text-gray-600 hover:text-airbnb-pink">
                   Local Stories
                 </Link>
               </li>
               <li>
-                <Link href="/events" className="text-sm text-gray-600 hover:text-airbnb-pink">
+                <Link href="/events/" className="text-sm text-gray-600 hover:text-airbnb-pink">
                   Food Events
                 </Link>
               </li>
               <li>
-                <Link href="/referral" className="text-sm text-gray-600 hover:text-airbnb-pink">
+                <Link href="/referral/" className="text-sm text-gray-600 hover:text-airbnb-pink">
                   Invite Friends
                 </Link>
               </li>
@@ -59,22 +61,22 @@ const Footer = () => {
             <h3 className="font-bold text-lg mb-4">Restaurant Owners</h3>
             <ul className="space-y-2">
               <li>
-                <Link href="/add-restaurant" className="text-sm text-gray-600 hover:text-airbnb-pink">
+                <Link href="/add-restaurant/" className="text-sm text-gray-600 hover:text-airbnb-pink">
                   Add Your Restaurant
                 </Link>
               </li>
               <li>
-                <Link href="/business" className="text-sm text-gray-600 hover:text-airbnb-pink">
+                <Link href="/business/" className="text-sm text-gray-600 hover:text-airbnb-pink">
                   Business Resources
                 </Link>
               </li>
               <li>
-                <Link href="/advertise" className="text-sm text-gray-600 hover:text-airbnb-pink">
+                <Link href="/advertise/" className="text-sm text-gray-600 hover:text-airbnb-pink">
                   Advertise With Us
                 </Link>
               </li>
               <li>
-                <Link href="/success-stories" className="text-sm text-gray-600 hover:text-airbnb-pink">
+                <Link href="/success-stories/" className="text-sm text-gray-600 hover:text-airbnb-pink">
                   Success Stories
                 </Link>
               </li>
@@ -84,22 +86,22 @@ const Footer = () => {
             <h3 className="font-bold text-lg mb-4">Support</h3>
             <ul className="space-y-2">
               <li>
-                <Link href="/help" className="text-sm text-gray-600 hover:text-airbnb-pink">
+                <Link href="/help/" className="text-sm text-gray-600 hover:text-airbnb-pink">
                   Help Center
                 </Link>
               </li>
               <li>
-                <Link href="/faq" className="text-sm text-gray-600 hover:text-airbnb-pink">
+                <Link href="/faq/" className="text-sm text-gray-600 hover:text-airbnb-pink">
                   FAQs
                 </Link>
               </li>
               <li>
-                <Link href="/privacy" className="text-sm text-gray-600 hover:text-airbnb-pink">
+                <Link href="/privacy/" className="text-sm text-gray-600 hover:text-airbnb-pink">
                   Privacy Policy
                 </Link>
               </li>
               <li>
-                <Link href="/terms" className="text-sm text-gray-600 hover:text-airbnb-pink">
+                <Link href="/terms/" className="text-sm text-gray-600 hover:text-airbnb-pink">
                   Terms of Service
                 </Link>
               </li>

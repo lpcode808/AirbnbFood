@@ -1,3 +1,5 @@
+'use client';
+
 import Image from 'next/image';
 
 interface CategoryProps {
@@ -8,14 +10,14 @@ interface CategoryProps {
 }
 
 const CATEGORIES = [
-  { label: 'Local Food', icon: '/AirbnbFood/icons/local.svg' },
-  { label: 'Poke', icon: '/AirbnbFood/icons/poke.svg' },
-  { label: 'Plate Lunch', icon: '/AirbnbFood/icons/plate.svg' },
-  { label: 'Seafood', icon: '/AirbnbFood/icons/seafood.svg' },
-  { label: 'Food Truck', icon: '/AirbnbFood/icons/truck.svg' },
-  { label: 'Shave Ice', icon: '/AirbnbFood/icons/shave-ice.svg' },
-  { label: 'Hawaiian', icon: '/AirbnbFood/icons/hawaii.svg' },
-  { label: 'Asian Fusion', icon: '/AirbnbFood/icons/fusion.svg' },
+  { label: 'Local Food', icon: '/icons/local.svg' },
+  { label: 'Poke', icon: '/icons/poke.svg' },
+  { label: 'Plate Lunch', icon: '/icons/plate.svg' },
+  { label: 'Seafood', icon: '/icons/seafood.svg' },
+  { label: 'Food Truck', icon: '/icons/truck.svg' },
+  { label: 'Shave Ice', icon: '/icons/shave-ice.svg' },
+  { label: 'Hawaiian', icon: '/icons/hawaii.svg' },
+  { label: 'Asian Fusion', icon: '/icons/fusion.svg' },
 ];
 
 const Category = ({ label, icon, isSelected = false, onClick }: CategoryProps) => {

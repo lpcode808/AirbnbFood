@@ -3,8 +3,6 @@ const nextConfig = {
   reactStrictMode: true,
   output: 'export',
   distDir: 'out',
-  // Adding basePath for GitHub Pages
-  basePath: '/AirbnbFood',
   // Fix for GitHub Pages which doesn't support client-side routing
   trailingSlash: true,
   images: {

@@ -2,7 +2,7 @@
 
 OahuEats is a web application inspired by Airbnb's design that focuses on helping users discover the best food spots on Oahu, Hawaii. Instead of rental properties, this platform showcases local restaurants, food trucks, and hidden culinary gems around the island.
 
-🔗 **Live Demo:** [Visit OahuEats](https://lpcode808.github.io/AirbnbFood/)
+🔗 **Live Demo:** [Visit OahuEats](https://lpcode808.github.io/)
 
 ## Features
 
