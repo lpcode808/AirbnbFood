@@ -2,6 +2,8 @@
 
 OahuEats is a web application inspired by Airbnb's design that focuses on helping users discover the best food spots on Oahu, Hawaii. Instead of rental properties, this platform showcases local restaurants, food trucks, and hidden culinary gems around the island.
 
+🔗 **Live Demo:** [Visit OahuEats](https://lpcode808.github.io/AirbnbFood/)
+
 ## Features
 
 - **Browse Food Spots**: Explore a curated collection of the best places to eat on Oahu
@@ -26,8 +28,8 @@ OahuEats is a web application inspired by Airbnb's design that focuses on helpin
 
 1. Clone the repository
 ```bash
-git clone https://github.com/yourusername/airbnbfood.git
-cd airbnbfood
+git clone https://github.com/lpcode808/AirbnbFood.git
+cd AirbnbFood
 ```
 
 2. Install dependencies
@@ -35,12 +37,17 @@ cd airbnbfood
 npm install
 ```
 
-3. Run the development server
+3. Download sample images
+```bash
+npm run download-images
+```
+
+4. Run the development server
 ```bash
 npm run dev
 ```
 
-4. Open [http://localhost:3000](http://localhost:3000) in your browser to see the application
+5. Open [http://localhost:3000](http://localhost:3000) in your browser to see the application
 
 ## Project Structure
 

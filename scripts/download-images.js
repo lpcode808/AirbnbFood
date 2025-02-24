@@ -1,76 +1,79 @@
 // Download sample images for the project
-const https = require('https');
 const fs = require('fs');
 const path = require('path');
+const https = require('https');
 
-const IMAGES_DIR = path.join(__dirname, '../public/images');
-
-// Make sure the directory exists
-if (!fs.existsSync(IMAGES_DIR)) {
-  fs.mkdirSync(IMAGES_DIR, { recursive: true });
+// Create the images directory if it doesn't exist
+const imagesDir = path.join(__dirname, '../public/images');
+if (!fs.existsSync(imagesDir)) {
+  fs.mkdirSync(imagesDir, { recursive: true });
 }
 
-// Hawaii food-related keywords for the placeholder images
-const keywords = [
-  'shrimp-plate',
-  'hawaiian-food',
-  'poke-bowl',
-  'plate-lunch',
-  'shave-ice',
-  'japanese-food',
-  'seafood',
-  'hawaiian-hotdog',
-  'tropical-food',
-  'hawaii-restaurant',
-  'food-truck',
-  'island-cuisine',
-  'pacific-food',
-  'tropical-fruit',
-  'luau-food',
-  'polynesian-cuisine'
+// Sample food image URLs from Unsplash
+const imageUrls = [
+  'https://images.unsplash.com/photo-1558538337-aab544368de8?w=800&auto=format&fit=crop',
+  'https://images.unsplash.com/photo-1559847844-5315695dadae?w=800&auto=format&fit=crop',
+  'https://images.unsplash.com/photo-1562967914-608f82629710?w=800&auto=format&fit=crop',
+  'https://images.unsplash.com/photo-1573626447226-8731efabeb91?w=800&auto=format&fit=crop',
+  'https://images.unsplash.com/photo-1562967915-1e4a15a69343?w=800&auto=format&fit=crop',
+  'https://images.unsplash.com/photo-1548614606-52b4451f994b?w=800&auto=format&fit=crop',
+  'https://images.unsplash.com/photo-1585032226651-759b368d7246?w=800&auto=format&fit=crop',
+  'https://images.unsplash.com/photo-1540683547110-d991c4caaf4d?w=800&auto=format&fit=crop',
+  'https://images.unsplash.com/photo-1592123133368-8b5800abf7f0?w=800&auto=format&fit=crop',
+  'https://images.unsplash.com/photo-1530219572517-1f7f5096b8b8?w=800&auto=format&fit=crop',
+  'https://images.unsplash.com/photo-1617093727343-374698b1b08d?w=800&auto=format&fit=crop',
+  'https://images.unsplash.com/photo-1615361200141-f45961202b5e?w=800&auto=format&fit=crop',
+  'https://images.unsplash.com/photo-1563252722-6292466e089e?w=800&auto=format&fit=crop',
+  'https://images.unsplash.com/photo-1607301405390-d831c242f59c?w=800&auto=format&fit=crop',
+  'https://images.unsplash.com/photo-1621188288739-da48118157a2?w=800&auto=format&fit=crop',
+  'https://images.unsplash.com/photo-1622040806062-27ae4fcd461a?w=800&auto=format&fit=crop',
 ];
 
-// Download an image from a URL and save it to the file system
-function downloadImage(url, filename) {
+// Download function
+const downloadImage = (url, filename) => {
   return new Promise((resolve, reject) => {
-    const filePath = path.join(IMAGES_DIR, filename);
+    console.log(`Downloading ${filename}...`);
     
-    const file = fs.createWriteStream(filePath);
     https.get(url, (response) => {
-      response.pipe(file);
+      if (response.statusCode !== 200) {
+        reject(new Error(`Failed to download ${url}: ${response.statusCode}`));
+        return;
+      }
       
-      file.on('finish', () => {
-        file.close();
-        console.log(`✅ Downloaded: ${filename}`);
+      const fileStream = fs.createWriteStream(path.join(imagesDir, filename));
+      response.pipe(fileStream);
+      
+      fileStream.on('finish', () => {
+        fileStream.close();
+        console.log(`Downloaded ${filename} successfully`);
         resolve();
       });
+      
+      fileStream.on('error', (err) => {
+        fs.unlink(path.join(imagesDir, filename), () => {});
+        reject(err);
+      });
+      
     }).on('error', (err) => {
-      fs.unlink(filePath, () => {});
-      console.error(`❌ Error downloading ${filename}: ${err.message}`);
       reject(err);
     });
   });
-}
+};
 
-// Main download function
-async function downloadSampleImages() {
-  console.log('🍽️ Downloading sample food images...');
-  
-  // Download 16 images (2 for each food spot)
-  for (let i = 1; i <= 16; i++) {
-    const keyword = keywords[(i - 1) % keywords.length];
-    const filename = `food${i}.jpg`;
-    // Using placeholder service for food images
-    const imageUrl = `https://source.unsplash.com/featured/?${keyword}&${i}`;
+// Download all images
+async function downloadAllImages() {
+  try {
+    const downloadPromises = imageUrls.map((url, index) => {
+      const filename = `food${index + 1}.jpg`;
+      return downloadImage(url, filename);
+    });
     
-    try {
-      await downloadImage(imageUrl, filename);
-    } catch (error) {
-      console.error(`Failed to download image ${i}`);
-    }
+    await Promise.all(downloadPromises);
+    console.log('All images downloaded successfully');
+  } catch (error) {
+    console.error('Error downloading images:', error);
+    process.exit(1);
   }
-  
-  console.log('✨ Done downloading images!');
 }
 
-downloadSampleImages(); 
+downloadAllImages(); 
