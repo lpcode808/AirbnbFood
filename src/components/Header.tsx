@@ -9,7 +9,7 @@ const Header = () => {
         <Link href="/" className="flex items-center">
           <div className="relative h-8 w-8 mr-2">
             <Image 
-              src="/logo.svg" 
+              src="/AirbnbFood/logo.svg" 
               alt="OahuEats Logo" 
               fill
               className="object-contain"
@@ -24,13 +24,13 @@ const Header = () => {
           <Link href="/" className="font-medium hover:text-airbnb-pink">
             Home
           </Link>
-          <Link href="/categories" className="font-medium hover:text-airbnb-pink">
+          <Link href="/categories/" className="font-medium hover:text-airbnb-pink">
             Categories
           </Link>
-          <Link href="/map" className="font-medium hover:text-airbnb-pink">
+          <Link href="/map/" className="font-medium hover:text-airbnb-pink">
             Map
           </Link>
-          <Link href="/about" className="font-medium hover:text-airbnb-pink">
+          <Link href="/about/" className="font-medium hover:text-airbnb-pink">
             About
           </Link>
         </nav>
