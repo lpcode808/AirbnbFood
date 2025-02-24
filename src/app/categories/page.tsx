@@ -1,5 +1,3 @@
-'use client';
-
 import { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -44,7 +42,7 @@ export default function CategoriesPage() {
                   {foodSpotsByCategory[category].map((spot: any) => (
                     <Link 
                       key={spot.id} 
-                      href={`/food-spot/${spot.id}`}
+                      href={`/food-spot/${spot.id}/`}
                       className="flex bg-white rounded-xl shadow-sm overflow-hidden hover:shadow-md transition"
                     >
                       <div className="w-1/3 relative h-32">
