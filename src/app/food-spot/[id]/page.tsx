@@ -157,7 +157,7 @@ export default function FoodSpotDetail() {
               .filter(spot => spot.id !== id && spot.category === foodSpot.category)
               .slice(0, 4)
               .map((spot) => (
-                <Link key={spot.id} href={`/food-spot/${spot.id}`} className="group">
+                <Link key={spot.id} href={`/food-spot/${spot.id}/`} className="group">
                   <div className="aspect-square w-full overflow-hidden rounded-xl bg-gray-200 relative">
                     <Image
                       fill
@@ -187,4 +187,11 @@ export default function FoodSpotDetail() {
       <Footer />
     </div>
   );
+}
+
+// This function is required for static site generation with dynamic routes
+export async function generateStaticParams() {
+  return foodSpots.map((spot) => ({
+    id: spot.id,
+  }));
 } 
